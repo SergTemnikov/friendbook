@@ -1,0 +1,35 @@
+.app-wrapper {
+    display: grid;
+    margin: 0 auto;
+    max-width: 1200px;
+    grid-template-areas:
+  "h h"
+  "n c";
+    grid-template-rows: 80px 1fr;
+    grid-template-columns: 3fr 10fr;
+    grid-gap: 14px;
+
+}
+
+body {
+    background-color: #a2836e;
+    background-repeat: no-repeat;
+    font-family: 'Syne Mono', monospace;
+
+}
+
+.app-wrapper-content {
+    grid-area: c;
+    /*background-color: cornflowerblue;*/
+    max-width: 1030px;
+
+}
+
+h2, h3 {
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+
+

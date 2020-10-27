@@ -1,0 +1,17 @@
+.friendAva {
+    width: 60px;
+    border-radius: 30px;
+}
+
+.friendName {
+    text-align: center;
+}
+
+.friendName:after {
+    display: flex;
+
+}
+
+.friendItem {
+    margin: 15px;
+}

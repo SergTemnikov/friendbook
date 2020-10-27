@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    grid-area: h;
+    background-color: black;
+    max-width: 1200px;
+    border-radius: 15px;
+    box-shadow: 6px 5px 7px rgba(255, 255, 255, 2);
+}
+
+.header img {
+    width: 100px;
+    margin: 0px 0px 15px 15px;
+}
+
+.mainTitle {
+    font-family: 'Syne Mono', monospace;
+    font-size: 46px;
+    margin-left: 300px;
+    margin-top: 12px;
+    letter-spacing: 10px;
+    color: #146EB4;
+}

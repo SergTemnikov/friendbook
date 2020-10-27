@@ -1,0 +1,12 @@
+.item {
+    color: white;
+}
+
+.item img {
+    width: 50px;
+    border-radius: 30px;
+}
+
+.likeName {
+    color: #146EB4;
+}

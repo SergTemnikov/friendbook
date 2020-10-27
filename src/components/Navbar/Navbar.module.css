@@ -1,0 +1,27 @@
+.nav {
+    grid-area: n;
+    background-color: #292F33;
+    padding: 20px;
+    min-width: 250px;
+    min-height: 300px;
+    line-height: 30px;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: 6px 5px 7px rgba(255, 255, 255, 2);
+}
+
+.item a {
+    text-decoration: none;
+    color: #ffffff;
+    opacity: unset;
+    padding: 5px;
+}
+
+.item a:hover {
+    border: 1px solid #ffc345;
+}
+
+.item a.activeLink {
+    color: #ff6f69;
+}

@@ -1,0 +1,22 @@
+.postsBlock {
+    padding: 10px;
+}
+
+.posts {
+    margin-top: 10px;
+}
+
+textarea {
+    width: 850px;
+    background-color: #8d9db6;
+}
+
+.addPostBtn {
+    margin: 15px 15px 15px 0;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.myPostsTitle {
+    margin: 10px;
+}
