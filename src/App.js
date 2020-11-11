@@ -17,8 +17,10 @@ const App = (props) => {
                     <Friends state={props.state.sideBar}/>
                 </div>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
-                    <Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                    <Route path='/dialogs' render={() => <Dialogs store={props.store}/>}/>
+                    <Route path='/profile' render={() =>
+                        <Profile state={props.state.profilePage}
+                                 dispatch={props.dispatch}/>}/>
                 </div>
             </div>
         </BrowserRouter>

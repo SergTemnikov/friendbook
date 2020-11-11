@@ -25,7 +25,6 @@
     margin-top: 20px;
     border: 2px solid #146EB4;
     border-radius: 20px;
-
 }
 
 .messages .message {
@@ -40,13 +39,19 @@
 }
 
 .newMessageText {
-    width: 830px;
+    width: 635px;
     background-color: #8d9db6;
     margin-left: 25px;
+    resize: none;
 }
 
 .newMessageBtn {
-    margin: 15px 15px 15px 725px;
+    margin: 15px 15px 15px 600px;
     font-weight: 600;
     padding: 5px;
+}
+
+.newMsgBlock {
+    display: block;
+    margin-top: 15px;
 }
