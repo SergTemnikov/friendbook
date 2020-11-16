@@ -8,10 +8,13 @@ const Navbar = () => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
-                <NavLink to='/Profile' activeClassName={s.activeLink}>My profile</NavLink>
+                <NavLink to='/profile' activeClassName={s.activeLink}>My profile</NavLink>
             </div>
             <div className={s.item}>
-                <NavLink to='/Dialogs' activeClassName={s.activeLink}>Messages</NavLink>
+                <NavLink to='/dialogs' activeClassName={s.activeLink}>Messages</NavLink>
+            </div>
+            <div className={s.item}>
+                <NavLink to='/users' activeClassName={s.activeLink}>Users</NavLink>
             </div>
             <div className={s.item}>
                 <NavLink to='#'>News</NavLink>

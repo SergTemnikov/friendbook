@@ -28,14 +28,7 @@ let store = {
                 {id: '5', name: 'Dima'}],
             newMessageBody: "",
         },
-
-        sideBar: {
-            friends: [
-                {id: 1, friendName: 'Serg'},
-                {id: 2, friendName: 'Max'},
-                {id: 3, friendName: 'Alex'}
-            ]
-        }
+        sideBar: {}
     },
     _callSubscriber() {
         console.log('State changed')
@@ -55,10 +48,6 @@ let store = {
         this._callSubscriber(this._state);
     }
 }
-
-
-
-
 
 window.store = store;
 export default store;
