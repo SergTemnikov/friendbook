@@ -5,17 +5,15 @@ import Preloader from "../../common/Preloader/preloader";
 const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
-    } else {
-        console.log(props);
     }
 
     return (
         <div>
-            {/* <div>
-                <img className={s.topBg} src='https://pbs.twimg.com/media/DFwTsX2VoAIC2UJ.jpg'/>
-            </div> */}
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <img src='https://upload.wikimedia.org/wikipedia/ru/5/53/Garena_Free_Fire_Logo.png' alt='main pic'/>
+            </div>
             <div className={s.descriptionBlock}>
-            <img src={props.profile.photos.large}/>
+            <img src={props.profile.photos.large} alt='current user pic'/>
                 <div>
                     {props.profile.aboutMe}
                 </div>

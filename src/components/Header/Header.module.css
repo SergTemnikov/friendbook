@@ -1,5 +1,6 @@
 .header {
     display: flex;
+    justify-content: space-between;
     grid-area: h;
     background-color: black;
     max-width: 1200px;
@@ -19,4 +20,9 @@
     margin-top: 12px;
     letter-spacing: 10px;
     color: #146EB4;
+}
+
+.loginBlock a {
+    color: white;
+    text-decoration: none; 
 }

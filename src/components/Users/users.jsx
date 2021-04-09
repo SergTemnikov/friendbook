@@ -14,8 +14,9 @@ let Users = (props) => {
     return (
         <div>
             <div className={styles.page}>
-                {pages.map(p => {
-                    return <span className={props.currentPage === p && styles.selectedPage}
+                {pages.map((p, i) => {
+                    return <span className={props.currentPage === p ? styles.selectedPage : null}
+                                key={i}
                                  onClick={(e) => {
                                      props.onPageChanged(p)
                                  }}>{p}</span>
@@ -28,7 +29,8 @@ let Users = (props) => {
                             <div className={styles.avaInfo}>
                                 <NavLink to={'/profile/ ' + u.id}>
                                     <img src={u.photos.small != null ? u.photos.small : userPhoto}
-                                         className={styles.userPhoto}/>
+                                            key={u.id}
+                                         className={styles.userPhoto} alt='little pic'/>
                                 </NavLink>
                                 {u.followed
                                     ? <button onClick={() => {
