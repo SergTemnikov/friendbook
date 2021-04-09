@@ -22,6 +22,10 @@
     color: #146EB4;
 }
 
+.loginBlock {
+    color: white;
+}
+
 .loginBlock a {
     color: white;
     text-decoration: none; 

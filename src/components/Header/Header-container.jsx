@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Header from './Header'
 import * as axios from 'axios'
 import { connect } from 'react-redux'
-import setAuthUserData from '../../redux/auth-reducer'
+import {setAuthUserData} from '../../redux/auth-reducer'
 
 class HeaderContainer extends Component {
     
@@ -11,9 +11,8 @@ class HeaderContainer extends Component {
             withCredentials: true
         })
             .then(response => {
-                console.log(response);
-                if (response.data.data.resultCode === 0) {
-                    let {id, email, login} = response.data.data
+                if (response.data.resultCode === 0) {
+                    let {email, login, id} = response.data.data
                     this.props.setAuthUserData(email, login, id)
                 }
             });
@@ -27,6 +26,9 @@ class HeaderContainer extends Component {
     
 }
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth,
+    login: state.auth.login
+})
 
 export default connect(mapStateToProps, {setAuthUserData})(HeaderContainer)
