@@ -13,14 +13,27 @@ export const usersAPI = {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`)
           .then(response => response.data)
   },
-  followUser(id) {
-    return instance.post(`follow/${id}`)
+  followUser(userId) {
+    return instance.post(`follow/${userId}`)
   },
-  unfollowUser(id) {
-    return instance.delete(`follow/${id}`)
+  unfollowUser(userId) {
+    return instance.delete(`follow/${userId}`)
   },
   fetchProfile(userId) {
+    console.warn('Obsolete method. Please, use profileAPI');
+    return profileAPI.fetchProfile(userId)
+  }
+}
+
+export const profileAPI = {
+  fetchProfile(userId) {
     return instance.get(`profile/${userId}`)
+  },
+  getStatus(userId) {
+    return instance.get(`profile/status/${userId}`)
+  },
+  updateStatus(status) {
+    return instance.put(`profile/status`, { status: status })
   }
 }
 
