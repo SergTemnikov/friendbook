@@ -1,18 +1,42 @@
-import React from 'react'
+import React, {Component} from 'react'
 import s from './ProfileInfo.module.css'
 
-const ProfileStatus = (props) => {
-  return (
-    <div>
-      <h4>Status</h4>
+export default class ProfileStatus extends Component {
+
+  state = {
+    editMode: false
+  }
+
+  activateEditMode = () => {
+    this.setState({
+      editMode: true
+    })
+  }
+
+  deactivateEditMode = () => {
+    this.setState({
+      editMode: false
+    })
+  }
+
+  render () {
+    return (
       <div>
-        <span>{props.status}</span>
+        <h4>Your status is:</h4>
+        { !this.state.editMode &&
+          <div>
+            <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+          </div>
+        }
+        { this.state.editMode &&
+          <div>
+            <input autoFocus={true} onBlur={this.deactivateEditMode} value={this.props.status}/>
+          </div>
+        }
+        
       </div>
-      <div>
-        <input value={props.status}/>
-      </div>
-    </div>
-  )
+    )
+  }
+  
 }
 
-export default ProfileStatus
