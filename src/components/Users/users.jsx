@@ -26,21 +26,21 @@ let Users = (props) => {
             <div className={styles.users} key={u.id}>
               <div>
                 <div className={styles.avaInfo}>
-                    <NavLink to={'/profile/ ' + u.id}>
-                      <img 
-                        src={u.photos.small != null ? u.photos.small : userPhoto}
-                        key={u.id}
-                        className={styles.userPhoto} alt='little pic'/>
-                    </NavLink>
-                    {u.followed 
-                      ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.unfollow(u.id)
-                        }}>Unfollow</button>
-                        
-                      : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.follow(u.id)
-                        }}>Follow</button>
-                    }
+                  <NavLink to={'/profile/ ' + u.id}>
+                    <img 
+                      src={u.photos.small != null ? u.photos.small : userPhoto}
+                      key={u.id}
+                      className={styles.userPhoto} alt='little pic'/>
+                  </NavLink>
+                  {u.followed 
+                    ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                      props.unfollow(u.id)
+                      }}>Unfollow</button>
+                      
+                    : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                      props.follow(u.id)
+                      }}>Follow</button>
+                  }
                 </div>
               </div>
               <div>
