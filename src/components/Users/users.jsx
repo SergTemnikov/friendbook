@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import * as axios from 'axios'
 import userPhoto from "../../assets/images/male-avatar.png";
 import {NavLink} from "react-router-dom";
+import {usersAPI} from '../../api/api'
 
 let Users = (props) => {
 
@@ -28,19 +29,14 @@ let Users = (props) => {
               <div>
                 <div className={styles.avaInfo}>
                     <NavLink to={'/profile/ ' + u.id}>
-                        <img src={u.photos.small != null ? u.photos.small : userPhoto}
-                                key={u.id}
-                              className={styles.userPhoto} alt='little pic'/>
+                      <img src={u.photos.small != null ? u.photos.small : userPhoto}
+                              key={u.id}
+                            className={styles.userPhoto} alt='little pic'/>
                     </NavLink>
-                    {u.followed ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                    {u.followed 
+                      ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
                         props.toggleFollowingInProgress(true, u.id)
-                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                          withCredentials: true,
-                          headers: {
-                            'API-KEY': '8d11dce2-fee2-4ed0-90f2-c493af9d9bb1'
-                          }
-                        })
-                        .then(response => {
+                        usersAPI.unfollowUser(u.id).then(response => {
                             if (response.data.resultCode === 0) {
                               props.unfollow(u.id)
                             } 
@@ -50,13 +46,7 @@ let Users = (props) => {
                         
                       : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
                         props.toggleFollowingInProgress(true, u.id)
-                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                          withCredentials: true,
-                          headers: {
-                            'API-KEY': '8d11dce2-fee2-4ed0-90f2-c493af9d9bb1'
-                          }
-                        })
-                        .then(response => {
+                        usersAPI.followUser(u.id).then(response => {
                             if (response.data.resultCode === 0) {
                               props.follow(u.id)
                             } 
