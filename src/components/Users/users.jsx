@@ -1,9 +1,7 @@
-import React from "react";
-import styles from "./styles.module.css";
-import * as axios from 'axios'
-import userPhoto from "../../assets/images/male-avatar.png";
-import {NavLink} from "react-router-dom";
-import {usersAPI} from '../../api/api'
+import React from "react"
+import styles from "./styles.module.css"
+import userPhoto from "../../assets/images/male-avatar.png"
+import {NavLink} from "react-router-dom"
 
 let Users = (props) => {
 
@@ -29,29 +27,18 @@ let Users = (props) => {
               <div>
                 <div className={styles.avaInfo}>
                     <NavLink to={'/profile/ ' + u.id}>
-                      <img src={u.photos.small != null ? u.photos.small : userPhoto}
-                              key={u.id}
-                            className={styles.userPhoto} alt='little pic'/>
+                      <img 
+                        src={u.photos.small != null ? u.photos.small : userPhoto}
+                        key={u.id}
+                        className={styles.userPhoto} alt='little pic'/>
                     </NavLink>
                     {u.followed 
                       ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.toggleFollowingInProgress(true, u.id)
-                        usersAPI.unfollowUser(u.id).then(response => {
-                            if (response.data.resultCode === 0) {
-                              props.unfollow(u.id)
-                            } 
-                            props.toggleFollowingInProgress(false, u.id)
-                          })
+                        props.unfollow(u.id)
                         }}>Unfollow</button>
                         
                       : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.toggleFollowingInProgress(true, u.id)
-                        usersAPI.followUser(u.id).then(response => {
-                            if (response.data.resultCode === 0) {
-                              props.follow(u.id)
-                            } 
-                            props.toggleFollowingInProgress(false, u.id)
-                          })
+                        props.follow(u.id)
                         }}>Follow</button>
                     }
                 </div>
