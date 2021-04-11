@@ -21,6 +21,14 @@ export default class ProfileStatus extends Component {
     this.props.updateStatus(this.state.status)
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({
+        status: this.props.status
+      })
+    }
+  }
+
   onStatusChange = (e) => {
     this.setState({
       status: e.currentTarget.value
@@ -28,9 +36,10 @@ export default class ProfileStatus extends Component {
   }
 
   render () {
+    console.log('RENDER');
     return (
       <div>
-        <h4>Your status is:</h4>
+        <h4>Status is:</h4>
         { !this.state.editMode &&
           <div>
             <span onDoubleClick={this.activateEditMode}>{this.props.status || 'No status'}</span>
