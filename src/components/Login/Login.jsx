@@ -1,36 +1,17 @@
 import React from 'react'
-import { reduxForm } from 'redux-form'
+import LoginForm from './LoginForm'
 
-export const LoginForm = (props) => {
-  return (
-      <form>
-        <div>
-          <input placeholder={'Login'}/>
-        </div>
-        ---------------------
-        <div>
-          <input placeholder={'Password'}/>
-        </div>
-        ---------------------
-        <div>
-          <input type={'checkbox'}/> Remember me
-        </div>
-        ---------------------
-        <div>
-          <button type={'submit'}>LOGIN</button>
-        </div>
-      </form>
-  )
-}
+const Login = () => {
 
-const LoginReduxForm = reduxForm({form: 'contact'})(LoginForm)
+  const onSubmit = (formData) => {
+    console.log(formData);
+  }
 
-const Login = (props) => {
   return (
     <div>
       <h1 style={{textAlign: 'center'}}>Login page</h1>
       <hr/>
-      <LoginForm />
+      <LoginForm onSubmit={onSubmit} />
     </div>
   )
 }

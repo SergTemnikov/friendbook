@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import s from './ProfileInfo.module.css'
 
 export default class ProfileStatus extends Component {
 
@@ -36,7 +35,6 @@ export default class ProfileStatus extends Component {
   }
 
   render () {
-    console.log('RENDER');
     return (
       <div>
         <h4>Status is:</h4>
