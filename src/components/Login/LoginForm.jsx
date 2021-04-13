@@ -13,17 +13,18 @@ const LoginForm = (props) => {
         <div>
           <Field component={Input} name={'email'} placeholder={'Login'} validate={[required, maxLength30]}/>
         </div>
-        ---------------------
+        -------------------------
         <div>
           <Field component={Input} name={'password'} placeholder={'Password'} validate={[required, maxLength20]} type={'password'}/>
         </div>
-        ---------------------
+        -------------------------
         <div>
-          <Field component={Input} name={'rememberMe'} type={'checkbox'}/> Remember me
+          <Field component={Input} name={'rememberMe'} type={'checkbox'}/> 
+          <span>Remember me</span> 
         </div>
-        ---------------------
+        --------------
         <div>
-          <button type={'submit'}>Login, buddy!</button>
+          <button type={'submit'}>LOGIN</button>
         </div>
         {props.error && <div className={style.commonError}>{props.error}</div>}
         

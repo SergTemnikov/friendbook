@@ -25,13 +25,21 @@ class App extends Component {
 
     return (
       <div className='app-wrapper'>
-        <HeaderContainer/>
-        <Navbar/>
-        <div className='app-wrapper-content'>
-          <Route path='/dialogs' render={ () => <DialogsContainer /> }/>
-          <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
-          <Route path='/users' render={ () => <UsersContainer />}/>
-          <Route path='/login' render={ () => <Login />}/>
+        <div className='container'>
+          <HeaderContainer/>
+          <div className='contentWrapper'>
+            <div className='content'>
+              <div>
+                <Navbar/>
+              </div>
+              <div className='mainContent'>
+                <Route path='/dialogs' render={ () => <DialogsContainer /> }/>
+                <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
+                <Route path='/users' render={ () => <UsersContainer />}/>
+                <Route path='/login' render={ () => <Login />}/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )

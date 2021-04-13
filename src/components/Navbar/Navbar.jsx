@@ -16,11 +16,10 @@ const Navbar = (props) => {
       <div className={s.item}>
         <NavLink to='/users' activeClassName={s.activeLink}>Users</NavLink>
       </div>
-      <hr/>
       {
         props.isAuth ? 
           null : <div className={s.item}>
-           <NavLink to='/login'>Login</NavLink>
+           <NavLink to='/login' activeClassName={s.activeLink}>Login</NavLink>
          </div>
       }            
     </nav>

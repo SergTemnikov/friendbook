@@ -15,10 +15,11 @@ const Login = (props) => {
   } 
 
   return (
-    <div>
-      <h1 style={{textAlign: 'center'}}>Login, buddy</h1>
-      <hr/>
-      <LoginForm onSubmit={onSubmit} />
+    <div style={{textAlign: 'center'}}>
+      <div>
+        <h1 style={{paddingBottom: '10px'}}>LOGIN</h1>
+        <LoginForm onSubmit={onSubmit} />
+      </div>
     </div>
   )
 }

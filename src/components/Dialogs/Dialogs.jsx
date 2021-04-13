@@ -21,18 +21,18 @@ const Dialogs = (props) => {
     return (
         <div>
           <div>
-            <h2>Messages</h2>
+            <h2 className={s.title}>Messages</h2>
           </div>
           <div className={s.dialogs}>
             <div className={s.dialogsItems}>
               {dialogsElements}
             </div>
             <div className={s.messages}>
-              <div>{messagesElements}</div>
-              <div className={s.newMsgBlock}>
-                <AddMessageForm onSubmit={addNewMessage}/>
-              </div>
+              {messagesElements}
             </div>
+          </div>
+          <div className={s.newMsgBlock}>
+            <AddMessageForm onSubmit={addNewMessage}/>
           </div>
         </div>
     )
