@@ -23,7 +23,7 @@ const LoginForm = (props) => {
         </div>
         ---------------------
         <div>
-          <button type={'submit'}>LOGIN</button>
+          <button type={'submit'}>Login, buddy!</button>
         </div>
         {props.error && <div className={style.commonError}>{props.error}</div>}
         

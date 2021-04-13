@@ -16,7 +16,7 @@ const Login = (props) => {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center'}}>Login page</h1>
+      <h1 style={{textAlign: 'center'}}>Login, buddy</h1>
       <hr/>
       <LoginForm onSubmit={onSubmit} />
     </div>

@@ -18,10 +18,10 @@ const Navbar = (props) => {
       </div>
       <hr/>
       {
-        !props.isAuth ? 
-          <div className={s.item}>
-            <NavLink to='/login'>Login</NavLink>
-          </div> : null
+        props.isAuth ? 
+          null : <div className={s.item}>
+           <NavLink to='/login'>Login</NavLink>
+         </div>
       }            
     </nav>
   )

@@ -1,6 +1,7 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     grid-area: h;
     background-color: black;
     max-width: 1200px;
@@ -16,14 +17,13 @@
 .mainTitle {
     font-family: 'Syne Mono', monospace;
     font-size: 46px;
-    margin-left: 300px;
-    margin-top: 12px;
     letter-spacing: 10px;
     color: #146EB4;
 }
 
 .loginBlock {
     color: white;
+    margin-right: 15px;
 }
 
 .loginBlock a {
