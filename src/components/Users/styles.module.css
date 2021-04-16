@@ -4,33 +4,7 @@
     border-radius: 50px;
 }
 
-.page {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    text-align: center;
-}
 
-.page span {
-    cursor: pointer;
-    letter-spacing: 10px;
-
-}
-
-.page span:hover {
-    cursor: pointer;
-    color: #ffffff;
-    justify-content: space-between;
-}
-
-.selectedPage {
-    font-weight: bold;
-    font-size: 18px;
-    color: #146EB4;
-}
-
-.selectedPage:hover {
-    cursor: pointer;
-}
 
 .users {
     display: flex;

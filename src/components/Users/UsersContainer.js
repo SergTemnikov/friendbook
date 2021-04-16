@@ -1,49 +1,45 @@
-import React from "react";
-import {connect} from "react-redux";
-import { setCurrentPage, getUsersData, follow, unfollow } from "../../redux/users-reducer";
-import Users from "./users";
-import Preloader from "../common/Preloader/preloader";
-import { compose } from "redux";
+import React from 'react'
+import {connect} from 'react-redux'
+import { setCurrentPage, getUsersData, follow, unfollow } from '../../redux/users-reducer'
+import Users from "./Users"
+import Preloader from "../common/Preloader/preloader"
+import { compose } from "redux"
 import { getUsers, getPageSize, getTotalUsersCount,
   getCurrentPage, getIsFetching, getFollowingInProgress } from '../../redux/users-selectors'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    const {currentPage, pageSize} = this.props
-    this.props.getUsersData(currentPage, pageSize)  
+    let {currentPage, pageSize, getUsersData} = this.props
+    getUsersData(currentPage, pageSize)  
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.getUsersData(pageNumber, this.props.pageSize)
+    let { getUsersData, pageSize} = this.props
+    getUsersData(pageNumber, pageSize)
   }
 
   render() {
+
+    let {totalUsersCount, pageSize, currentPage, 
+          users, follow, unfollow, followingInProgress} = this.props
+
+    let {onPageChanged} = this
+
     return <>
       {this.props.isFetching ? <Preloader/> : null}
       <Users 
-        totalUsersCount={this.props.totalUsersCount}
-        pageSize={this.props.pageSize}
-        currentPage={this.props.currentPage}
-        users={this.props.users}
-        onPageChanged={this.onPageChanged}
-        follow={this.props.follow}
-        unfollow={this.props.unfollow}
-        followingInProgress={this.props.followingInProgress}
+        totalUsersCount={totalUsersCount}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        users={users}
+        onPageChanged={onPageChanged}
+        follow={follow}
+        unfollow={unfollow}
+        followingInProgress={followingInProgress}
       />
     </>
   }
 }
-
-// let mapStateToProps = (state) => {
-//   return {
-//     users: state.usersPage.users,
-//     pageSize: staate.usersPage.pageSize,
-//     totalUsersCount: state.usersPage.totalUsersCount,
-//     currentPage: state.usersPage.currentPage,
-//     isFetching: state.usersPage.isFetching,
-//     followingInProgress: state.usersPage.followingInProgress
-//   }
-// }
 
 let mapStateToProps = (state) => {
   return {
