@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { setCurrentPage, getUsersData, follow, unfollow } from '../../redux/users-reducer'
-import Users from "./Users"
+import Users from "./users"
 import Preloader from "../common/Preloader/preloader"
 import { compose } from "redux"
 import { getUsers, getPageSize, getTotalUsersCount,

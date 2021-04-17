@@ -5,13 +5,18 @@
 }
 
 
-
-.users {
-    display: flex;
-}
-
 .avaInfo {
     display: inline-grid;
     grid-gap: 10px;
     margin-right: 20px;
+}
+
+.users {
+    display: block;
+    text-align: left;
+}
+
+.user {
+    display: block;
+    text-align: left;
 }
