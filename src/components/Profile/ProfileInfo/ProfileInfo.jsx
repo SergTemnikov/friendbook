@@ -3,32 +3,45 @@ import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/preloader";
 // import ProfileStatus from './ProfileStatus'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+import FakePic from '../../../img/fake-pic.png'
 
-const ProfileInfo = (props) => {
-  if (!props.profile) {
+const ProfileInfo = ({profile, isOwner, status, updateStatus, savePhoto}) => {
+  if (!profile) {
     return <Preloader />
+  }
+
+  const mainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0])
+    }
   }
 
   return (
     <div>
-      {/* <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <img src='https://upload.wikimedia.org/wikipedia/ru/5/53/Garena_Free_Fire_Logo.png' alt='main pic'/>
-      </div> */}
       <div className={s.descriptionBlock}>
         <div className={s.profileHeader}>
           <div>
-            <img src={props.profile.photos.large} alt='current user pic'/>
+            <img src={profile.photos.large || FakePic} alt='current user pic'/>
+            
+            { 
+              isOwner 
+                && (
+                  <div>
+                    <input type='file' onChange={e => mainPhotoSelected(e)}/>
+                  </div>
+                  )
+            }
           </div>
           <div>
-            <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
           </div>
           
         </div>
         <div>
-          {props.profile.aboutMe}
+          {profile.aboutMe}
         </div>
         <div>
-          {props.profile.fullName}
+          {profile.fullName}
         </div>
       </div>
     </div>

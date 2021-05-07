@@ -21,7 +21,7 @@ let Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ...p
           currentPage={currentPage} 
           onPageChanged={onPageChanged} 
           pageSize={pageSize} 
-          totalUsersCount={totalUsersCount}/>
+          totalItemsCount={totalUsersCount}/>
     </div>
     </div>)
 }
