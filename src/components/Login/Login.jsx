@@ -6,8 +6,8 @@ import {login} from '../../redux/auth-reducer'
 
 const Login = (props) => {
 
-  const onSubmit = ({email, password, rememberMe}) => {
-    props.login(email, password, rememberMe)
+  const onSubmit = ({email, password, rememberMe, captcha}) => {
+    props.login(email, password, rememberMe, captcha)
   }
 
   if (props.isAuth) {
@@ -18,7 +18,7 @@ const Login = (props) => {
     <div style={{textAlign: 'center'}}>
       <div>
         <h1 style={{paddingBottom: '10px'}}>LOGIN</h1>
-        <LoginForm onSubmit={onSubmit} />
+        <LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
       </div>
     </div>
   )
@@ -26,7 +26,8 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
   } 
 } 
 

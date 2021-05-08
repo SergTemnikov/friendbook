@@ -7,7 +7,7 @@ import style from '../common/FormControl/FormControl.module.css'
 const maxLength30 = maxLengthCreator(30)
 const maxLength20 = maxLengthCreator(20)
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
   return (
     <form onSubmit={handleSubmit}>
       {CreateField(Input, 'email', 'Login', [required, maxLength30])}
@@ -16,6 +16,10 @@ const LoginForm = ({handleSubmit, error}) => {
       -------------------------
       {CreateField(Input, 'password', null, [], {type: 'checkbox'}, 'Remember me')}
       --------------
+      <div>
+        {captchaUrl && <img src={captchaUrl} alt='captcha'/>}
+        {captchaUrl && CreateField(Input, 'captcha', 'Enter symbols from picture', [required])}
+      </div>
       <div>
         <button type={'submit'}>LOGIN</button>
       </div>
