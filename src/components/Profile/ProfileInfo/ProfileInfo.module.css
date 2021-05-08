@@ -23,3 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 .profileHeader div {
 margin-right: 15px;
 }
+
+.contact {
+    padding-left: 15px;
+}
