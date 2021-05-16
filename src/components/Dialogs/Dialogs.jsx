@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom'
-import s from './Dialogs.module.css';
+// import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import AddMessageForm from './Message/AddMessageForm'
@@ -21,17 +21,17 @@ const Dialogs = (props) => {
     return (
         <div>
           <div>
-            <h2 className={s.title}>Messages</h2>
+            <h2>Messages</h2>
           </div>
-          <div className={s.dialogs}>
-            <div className={s.dialogsItems}>
+          <div>
+            <div>
               {dialogsElements}
             </div>
-            <div className={s.messages}>
+            <div>
               {messagesElements}
             </div>
           </div>
-          <div className={s.newMsgBlock}>
+          <div>
             <AddMessageForm onSubmit={addNewMessage}/>
           </div>
         </div>

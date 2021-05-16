@@ -1,28 +1,34 @@
 import React from 'react'
 import s from './Navbar.module.css'
+import {Menu} from 'antd'
 import {NavLink} from "react-router-dom"
 import { connect } from 'react-redux'
 
 const Navbar = (props) => {
 
   return (
-    <nav className={s.nav}>
-      <div className={s.item}>
+    <Menu 
+      mode="inline"
+      defaultSelectedKeys={['1']}
+      defaultOpenKeys={['sub1']}
+      style={{ height: '100%', borderRight: 0 }}
+    >
+      <Menu.Item>
         <NavLink to='/profile' activeClassName={s.activeLink}>My profile</NavLink>
-      </div>
-      <div className={s.item}>
+      </Menu.Item>
+      <Menu.Item>
         <NavLink to='/dialogs' activeClassName={s.activeLink}>Messages</NavLink>
-      </div>
-      <div className={s.item}>
+      </Menu.Item>
+      <Menu.Item>
         <NavLink to='/users' activeClassName={s.activeLink}>Users</NavLink>
-      </div>
+      </Menu.Item>
       {
         props.isAuth ? 
-          null : <div className={s.item}>
-           <NavLink to='/login' activeClassName={s.activeLink}>Login</NavLink>
-         </div>
+          null : <Menu.Item>
+           <NavLink to='/login'>Login</NavLink>
+         </Menu.Item>
       }            
-    </nav>
+    </Menu>
   )
 }
 

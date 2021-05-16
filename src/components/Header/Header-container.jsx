@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import Header from './Header'
+import AppHeader from './Header'
 import { connect } from 'react-redux'
 import {logout} from '../../redux/auth-reducer'
 
 class HeaderContainer extends Component {
   
   render () {
-    return <Header {...this.props}/>
+    return <AppHeader {...this.props}/>
   }
 }
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { compose } from 'redux'
 import { connect, Provider } from 'react-redux'
 import './App.css'
+import { Layout, Row, Col } from 'antd'
 import withSuspense from './hoc/withSuspense'
 import Navbar from "./components/Navbar/Navbar"
 import {BrowserRouter, Route, withRouter} from "react-router-dom"
@@ -9,6 +10,8 @@ import { HeaderContainer,  } from './components'
 import { initializeApp } from './redux/app-reducer'
 import Preloader from './components/common/Preloader/preloader'
 import store from './redux/redux-store'
+
+const { Content, Sider } = Layout
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'))
@@ -30,24 +33,29 @@ class App extends Component {
     }
      
     return (
-      <div className='app-wrapper'>
-        <div className='container'>
-          <HeaderContainer/>
-          <div className='contentWrapper'>
-            <div className='content'>
-              <div>
-                <Navbar/>
-              </div>
-              <div className='mainContent'>
-                <Route path='/dialogs' render={ withSuspense(DialogsContainer) }/>
-                <Route path='/profile/:userId?' render={ withSuspense(ProfileContainer) }/>
-                <Route path='/users' render={ withSuspense(UsersContainer) }/>
-                <Route path='/login' render={ withSuspense(Login)}/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Layout style={{backgroundColor: 'white'}}>
+        <Row align='middle'>
+          <Col span={24}>
+            <HeaderContainer/>
+          </Col>
+        </Row>
+        <Row justify={'center'}>
+         <Col span={12}>
+          <Layout style={{backgroundColor: 'white'}}>
+            <Sider width={200}>
+              <Navbar/>
+            </Sider>
+            <Content style={{padding: 10}}>
+              <Route path='/dialogs' render={ withSuspense(DialogsContainer) }/>
+              <Route path='/profile/:userId?' render={ withSuspense(ProfileContainer) }/>
+              <Route path='/users' render={ withSuspense(UsersContainer) }/>
+              <Route path='/login' render={ withSuspense(Login)}/>
+            </Content>
+          </Layout>
+         </Col>
+        </Row>
+        
+      </Layout>
     )
   }
 }

@@ -3,6 +3,7 @@ import * as serviceWorker from './serviceWorker'
 import ReactDOM from 'react-dom'
 import './index.css'
 import MyBuddiezApp from './App'
+import 'antd/dist/antd.css'
 
 
 ReactDOM.render(

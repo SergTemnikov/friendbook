@@ -15,9 +15,9 @@ const Login = (props) => {
   } 
 
   return (
-    <div style={{textAlign: 'center'}}>
+    <div>
       <div>
-        <h1 style={{paddingBottom: '10px'}}>LOGIN</h1>
+        <h1>LOGIN</h1>
         <LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
       </div>
     </div>

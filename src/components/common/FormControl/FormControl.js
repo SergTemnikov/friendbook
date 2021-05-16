@@ -15,12 +15,13 @@ const FormControl = ({input, meta: { touched, error}, el, ...props}) => {
 }
 
 export const CreateField = (component, name, placeholder, validators, props = {}, text = '') => (
-  <div>
+  <div >
     <Field 
       component={component} 
       name={name} 
       placeholder={placeholder} 
       validate={validators} 
+      style={{width: '100%'}}
       {...props}/>
       <span>{text}</span>
   </div>
